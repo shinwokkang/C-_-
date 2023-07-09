@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
-/*******************     median of three integers (¼¼ Á¤¼öÀÇ Áß¾Ó°ª ±¸ÇÏ±â)       ***************/
+/*******************     median of three integers (ì„¸ ì •ìˆ˜ì˜ ì¤‘ì•™ê°’ êµ¬í•˜ê¸°)       ***************/
 int med3_1(int a, int b, int c);
 
 int main() {
@@ -13,35 +13,33 @@ int main() {
 	printf("median : %d", med3_1(a, b, c));
 }*/
 
-/* ¼øÂ÷ ±¸Á¶¸¦ ÀÌ¿ëÇÑ Áß¾Ó°ª ±¸ÇÏ±âÀÔ´Ï´Ù. */
+/* ìˆœì°¨ êµ¬ì¡°ë¥¼ ì´ìš©í•œ ì¤‘ì•™ê°’ êµ¬í•˜ê¸°ìž…ë‹ˆë‹¤. */
 
 
-/* À§¿¡¼­ºÎÅÍ ÁøÇàµÇ¸é¼­ ¹üÀ§¸¦ »ý°¢ÇÏ¸é¼­ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â °Í(¼øÂ÷ ±¸Á¶ÀÇ Æ¯Â¡)ÀÌ Áß¿äÇÑ ºÎºÐÀÎ °Í °°½À´Ï´Ù. */
+/* ìœ„ì—ì„œë¶€í„° ì§„í–‰ë˜ë©´ì„œ ë²”ìœ„ë¥¼ ìƒê°í•˜ë©´ì„œ ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” ê²ƒ(ìˆœì°¨ êµ¬ì¡°ì˜ íŠ¹ì§•)ì´ ì¤‘ìš”í•œ ë¶€ë¶„ì¸ ê²ƒ ê°™ìŠµë‹ˆë‹¤. */
  int med3_1(int a, int b, int c) {
-	if (a >= b)					// ¡Ý 1.  if ¹®À» ÀÌ¿ëÇÏ¿© a,b¸¦ ºñ±³ÇÕ´Ï´Ù.
-		if (b >= c)							// ¡ß4. (a >= b)¸¦ Æ÷ÇÔÇÏ°í, (b >= c)¸¦ ºñ±³ÇÕ´Ï´Ù. 
+	if (a >= b)					// â—Ž 1.  if ë¬¸ì„ ì´ìš©í•˜ì—¬ a,bë¥¼ ë¹„êµí•©ë‹ˆë‹¤.
+		if (b >= c)						// â—†4. (a >= b)ë¥¼ í¬í•¨í•˜ê³ , (b >= c)ë¥¼ ë¹„êµí•©ë‹ˆë‹¤. 
 			return b;
-		else if (a <= c)					// ¡ß5. (a >= b)¸¦ Æ÷ÇÔÇÏÁö¸¸, ¾Õ¼­ ºñ±³ÇÑ ( b >= c )¸¦ Á¦¿ÜÇÑ ( a >=b && b < c && a <= c )¸¦ ºñ±³ÇÕ´Ï´Ù. 
+		else if (a <= c)					// â—†5. (a >= b)ë¥¼ í¬í•¨í•˜ì§€ë§Œ, ì•žì„œ ë¹„êµí•œ ( b >= c )ë¥¼ ì œì™¸í•œ ( a >=b && b < c && a <= c )ë¥¼ ë¹„êµí•©ë‹ˆë‹¤. 
 			return a;
 		else
 			return c;
-	else if (a >= c)			// ¡Ý 2.  ¾Õ¼­ ±¸ÇÑ (a >= b)¸¦ Á¦¿ÜÇÑ ºÎºÐ¿¡¼­ÀÇ ºñ±³ÀÌ¹Ç·Î ( a < b && a >= c )¸¦ Æ÷ÇÔÇÏ´Â ¹®ÀåÀÔ´Ï´Ù.
+	else if (a >= c)				// â—Ž 2.  ì•žì„œ êµ¬í•œ (a >= b)ë¥¼ ì œì™¸í•œ ë¶€ë¶„ì—ì„œì˜ ë¹„êµì´ë¯€ë¡œ ( a < b && a >= c )ë¥¼ í¬í•¨í•˜ëŠ” ë¬¸ìž¥ìž…ë‹ˆë‹¤.
 		return a;
-	else if (b >= c)			// ¡Ý 3.  ¾Õ¼­ ±¸ÇÑ ( a >= b )¿Í ( a >= c )¸¦ ¸ðµÎ Á¦¿ÜÇÑ ºÎºÐÀÌ¹Ç·Î ( a < b && a < c && b >= c )¸¦ Æ÷ÇÔÇÏ´Â ¹®ÀåÀÔ´Ï´Ù.
+	else if (b >= c)				// â—Ž 3.  ì•žì„œ êµ¬í•œ ( a >= b )ì™€ ( a >= c )ë¥¼ ëª¨ë‘ ì œì™¸í•œ ë¶€ë¶„ì´ë¯€ë¡œ ( a < b && a < c && b >= c )ë¥¼ í¬í•¨í•˜ëŠ” ë¬¸ìž¥ìž…ë‹ˆë‹¤.
 		return c;
 	else
 		return b;
 }
 
-/* ´ÙÀ½ ÇÔ¼ö´Â Áß¾Ó°ªÀÌ a,b,cÀÏ¶§¸¦ °¢°¢ »ý°¢ÇÏ¿© ÀÛ¼ºÇÑ ÄÚµåÀÔ´Ï´Ù. */
+/* ë‹¤ìŒ í•¨ìˆ˜ëŠ” ì¤‘ì•™ê°’ì´ a,b,cì¼ë•Œë¥¼ ê°ê° ìƒê°í•˜ì—¬ ìž‘ì„±í•œ ì½”ë“œìž…ë‹ˆë‹¤. */
 int med3_2(int a, int b, int c) {
 
-	// a °¡ Áß¾Ó°ªÀÏ ¶§ ( b - a - c || c - a - b )
-	if ((b >= a && a >= c) || (c >= a && a >= b))
+	if ((b >= a && a >= c) || (c >= a && a >= b))			// a ê°€ ì¤‘ì•™ê°’ì¼ ë•Œ ( b - a - c || c - a - b )
 		return a;
-	
-	// b °¡ Áß¾Ó°ªÀÏ ¶§ ( a - b - c || c - b - a ) 
-	else if ((a >= b && b >= c) || (c >= b && b >= a))
+	 
+	else if ((a >= b && b >= c) || (c >= b && b >= a))		// b ê°€ ì¤‘ì•™ê°’ì¼ ë•Œ ( a - b - c || c - b - a )
 		return b;
 	
 	else
